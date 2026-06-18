@@ -1,0 +1,16 @@
+anthropic
+sentence-transformers
+chromadb
+langchain
+langchain-community
+langchain-text-splitters
+rank-bm25
+sec-edgar-downloader
+beautifulsoup4
+pandas
+numpy
+streamlit
+plotly
+ragas
+datasets
+python-dotenv

@@ -1,0 +1,11 @@
+.env
+__pycache__/
+*.pyc
+.DS_Store
+data/raw/
+data/vectorstore/
+*.ipynb_checkpoints/
+venv/
+.venv/
+data/chunks.json
+data/metadata.csv
