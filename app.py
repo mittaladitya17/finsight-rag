@@ -19,303 +19,364 @@ st.set_page_config(
 )
 
 # ── Styles ────────────────────────────────────────────────────────────────────
-# Palette:
-#   --bg       #F8FAFC  (near-white page background)
-#   --surface  #FFFFFF  (card / panel surfaces)
-#   --border   #E2E8F0  (subtle dividers)
-#   --text-1   #0F172A  (headings — near-black, high contrast)
-#   --text-2   #334155  (body copy)
-#   --text-3   #64748B  (secondary / captions)
-#   --accent   #1D4ED8  (Blue 700 — primary action / highlights)
-#   --accent-l #DBEAFE  (Blue 100 — pill backgrounds)
-#   --green    #15803D  (positive / score)
-#   --indigo   #4338CA  (In My Mind accent)
-
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
-html, body, [class*="css"] {
-    font-family: 'Inter', sans-serif;
-    background-color: #F8FAFC !important;
-    color: #0F172A !important;
+/* ── CSS variables: light mode (default) ── */
+:root {
+  --bg:       #F8FAFC;
+  --surface:  #FFFFFF;
+  --border:   #E2E8F0;
+  --t1:       #0F172A;
+  --t2:       #334155;
+  --t3:       #64748B;
+  --accent:   #2563EB;
+  --accent-bg:#EFF6FF;
+  --accent-br:#BFDBFE;
+  --pill-bg:  #EFF6FF;
+  --pill-br:  #BFDBFE;
+  --pill-c:   #1D4ED8;
+  --stat-bg:  #FFFFFF;
+  --stat-sep: #E2E8F0;
+  --card-bg:  #FFFFFF;
+  --card-br:  #E2E8F0;
+  --chunk-bg: #F8FAFC;
+  --mind-bg:  #EEF2FF;
+  --mind-br:  #C7D2FE;
+  --mind-acc: #4338CA;
+  --mind-t:   #312E81;
+  --warn-bg:  #F0FDF4;
+  --warn-br:  #BBF7D0;
+  --warn-t:   #15803D;
+  --ans-bg:   #FFFFFF;
+  --chip-bg:  #EFF6FF;
+  --chip-br:  #BFDBFE;
+  --chip-t:   #1D4ED8;
+  --score-c:  #15803D;
 }
+
+/* ── CSS variables: dark mode ── */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:       #0F172A;
+    --surface:  #1E293B;
+    --border:   #334155;
+    --t1:       #F1F5F9;
+    --t2:       #CBD5E1;
+    --t3:       #64748B;
+    --accent:   #60A5FA;
+    --accent-bg:#172554;
+    --accent-br:#1E3A8A;
+    --pill-bg:  #172554;
+    --pill-br:  #1E3A8A;
+    --pill-c:   #93C5FD;
+    --stat-bg:  #1E293B;
+    --stat-sep: #334155;
+    --card-bg:  #1E293B;
+    --card-br:  #334155;
+    --chunk-bg: #0F172A;
+    --mind-bg:  #1E1B4B;
+    --mind-br:  #312E81;
+    --mind-acc: #818CF8;
+    --mind-t:   #C7D2FE;
+    --warn-bg:  #052E16;
+    --warn-br:  #166534;
+    --warn-t:   #4ADE80;
+    --ans-bg:   #1E293B;
+    --chip-bg:  #172554;
+    --chip-br:  #1E3A8A;
+    --chip-t:   #93C5FD;
+    --score-c:  #4ADE80;
+  }
+}
+
+/* Streamlit dark mode override (Streamlit sets data-theme on body) */
+[data-theme="dark"],
+.stApp[data-theme="dark"],
+html[data-theme="dark"] {
+  --bg:       #0F172A !important;
+  --surface:  #1E293B !important;
+  --border:   #334155 !important;
+  --t1:       #F1F5F9 !important;
+  --t2:       #CBD5E1 !important;
+  --t3:       #64748B !important;
+  --accent:   #60A5FA !important;
+  --pill-bg:  #172554 !important;
+  --pill-br:  #1E3A8A !important;
+  --pill-c:   #93C5FD !important;
+  --stat-bg:  #1E293B !important;
+  --stat-sep: #334155 !important;
+  --card-bg:  #1E293B !important;
+  --card-br:  #334155 !important;
+  --chunk-bg: #0F172A !important;
+  --mind-bg:  #1E1B4B !important;
+  --mind-br:  #312E81 !important;
+  --mind-acc: #818CF8 !important;
+  --mind-t:   #C7D2FE !important;
+  --ans-bg:   #1E293B !important;
+  --chip-bg:  #172554 !important;
+  --chip-br:  #1E3A8A !important;
+  --chip-t:   #93C5FD !important;
+  --score-c:  #4ADE80 !important;
+}
+
+html, body, [class*="css"] { font-family: 'Inter', sans-serif; }
 .block-container { padding: 0 2rem 3rem; max-width: 1200px; }
 
-/* ── Topbar ── */
-.topbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem 0 0.9rem;
-    border-bottom: 2px solid #E2E8F0;
-    margin-bottom: 0;
+/* ── Brand header — inside tab content, always visible ── */
+.brand-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 0 0;
+  margin-bottom: 0.2rem;
 }
-.topbar-left { display: flex; align-items: baseline; gap: 0.6rem; }
-.topbar-brand {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #0F172A;
-    letter-spacing: 0.04em;
+.brand-name {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--t1);
+  letter-spacing: 0.04em;
 }
-.topbar-brand span { color: #1D4ED8; }
-.topbar-tag {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.62rem;
-    color: #94A3B8;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+.brand-name span { color: var(--accent); }
+.brand-right {
+  font-size: 0.72rem;
+  color: var(--t3);
 }
-.topbar-right { font-size: 0.72rem; color: #94A3B8; }
+.brand-right a { color: var(--accent); text-decoration: none; }
 
 /* ── Hero ── */
 .hero {
-    padding: 3rem 0 2.5rem;
-    border-bottom: 1px solid #E2E8F0;
+  padding: 2.5rem 0 2rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 0.5rem;
 }
 .hero-kicker {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.62rem;
-    letter-spacing: 0.2em;
-    color: #1D4ED8;
-    text-transform: uppercase;
-    margin-bottom: 0.8rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
 }
 .hero-h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #0F172A;
-    line-height: 1.15;
-    margin: 0 0 1rem;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--t1);
+  line-height: 1.15;
+  margin: 0 0 1rem;
 }
-.hero-h1 em { color: #1D4ED8; font-style: normal; }
+.hero-h1 em { color: var(--accent); font-style: normal; }
 .hero-lead {
-    font-size: 0.95rem;
-    color: #475569;
-    max-width: 540px;
-    line-height: 1.75;
-    margin: 0 0 2rem;
+  font-size: 0.95rem;
+  color: var(--t2);
+  max-width: 540px;
+  line-height: 1.75;
+  margin: 0 0 1.8rem;
 }
-.hero-pills { display: flex; gap: 0.45rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+.hero-pills {
+  display: flex;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
 .pill {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.61rem;
-    letter-spacing: 0.06em;
-    background: #DBEAFE;
-    border: 1px solid #BFDBFE;
-    color: #1D4ED8;
-    border-radius: 4px;
-    padding: 0.22rem 0.65rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.61rem;
+  letter-spacing: 0.06em;
+  background: var(--pill-bg);
+  border: 1px solid var(--pill-br);
+  color: var(--pill-c);
+  border-radius: 4px;
+  padding: 0.22rem 0.65rem;
 }
 
 /* ── Stats strip ── */
 .stats {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 1px;
-    background: #E2E8F0;
-    border: 1px solid #E2E8F0;
-    border-radius: 10px;
-    overflow: hidden;
-    margin-bottom: 3rem;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1px;
+  background: var(--stat-sep);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 2.5rem;
 }
-.stat { background: #FFFFFF; padding: 1.1rem 1.4rem; }
+.stat { background: var(--stat-bg); padding: 1.1rem 1.4rem; }
 .stat-n {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 1.7rem;
-    font-weight: 600;
-    color: #0F172A;
-    line-height: 1;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: var(--t1);
+  line-height: 1;
 }
-.stat-l {
-    font-size: 0.68rem;
-    color: #94A3B8;
-    margin-top: 0.25rem;
-    letter-spacing: 0.03em;
-}
+.stat-l { font-size: 0.68rem; color: var(--t3); margin-top: 0.25rem; }
 
 /* ── How it works ── */
 .how {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1px;
-    background: #E2E8F0;
-    border: 1px solid #E2E8F0;
-    border-radius: 10px;
-    overflow: hidden;
-    margin-bottom: 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
 }
-.how-c { background: #FFFFFF; padding: 1.1rem 1.3rem; }
+.how-c { background: var(--card-bg); padding: 1.1rem 1.3rem; }
 .how-n {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.6rem;
-    color: #1D4ED8;
-    letter-spacing: 0.1em;
-    margin-bottom: 0.35rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.35rem;
 }
-.how-t { font-size: 0.82rem; font-weight: 600; color: #1E293B; margin-bottom: 0.25rem; }
-.how-d { font-size: 0.75rem; color: #64748B; line-height: 1.55; }
+.how-t { font-size: 0.82rem; font-weight: 600; color: var(--t1); margin-bottom: 0.25rem; }
+.how-d { font-size: 0.75rem; color: var(--t3); line-height: 1.55; }
 
 /* ── Section label ── */
 .slabel {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.6rem;
-    letter-spacing: 0.18em;
-    color: #1D4ED8;
-    text-transform: uppercase;
-    margin: 2rem 0 0.8rem;
-    padding-bottom: 0.4rem;
-    border-bottom: 1px solid #E2E8F0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin: 2rem 0 0.8rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--border);
 }
 
 /* ── Coverage cards ── */
 .cov-card {
-    background: #FFFFFF;
-    border: 1px solid #E2E8F0;
-    border-radius: 8px;
-    padding: 0.9rem 1.1rem;
+  background: var(--card-bg);
+  border: 1px solid var(--card-br);
+  border-radius: 8px;
+  padding: 0.9rem 1.1rem;
 }
 .cov-ticker {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.72rem;
-    font-weight: 600;
-    color: #1D4ED8;
-    margin-bottom: 0.2rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 0.2rem;
 }
-.cov-name { font-size: 0.8rem; font-weight: 600; color: #1E293B; margin-bottom: 0.25rem; }
-.cov-years { font-size: 0.68rem; color: #94A3B8; }
+.cov-name { font-size: 0.8rem; font-weight: 600; color: var(--t1); margin-bottom: 0.25rem; }
+.cov-years { font-size: 0.68rem; color: var(--t3); }
 
 /* ── Answer ── */
 .answer {
-    background: #FFFFFF;
-    border: 1px solid #E2E8F0;
-    border-top: 3px solid #1D4ED8;
-    border-radius: 10px;
-    padding: 1.6rem 2rem;
-    margin-top: 1rem;
+  background: var(--ans-bg);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--accent);
+  border-radius: 10px;
+  padding: 1.6rem 2rem;
+  margin-top: 1rem;
 }
 .answer-eye {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.6rem;
-    letter-spacing: 0.16em;
-    color: #1D4ED8;
-    text-transform: uppercase;
-    margin-bottom: 0.9rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.16em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 0.9rem;
 }
-.answer-body { font-size: 0.92rem; color: #1E293B; line-height: 1.85; }
+.answer-body { font-size: 0.92rem; color: var(--t2); line-height: 1.85; }
 .chips {
-    display: flex; flex-wrap: wrap; gap: 0.35rem;
-    margin-top: 1rem; padding-top: 0.8rem;
-    border-top: 1px solid #F1F5F9;
+  display: flex; flex-wrap: wrap; gap: 0.35rem;
+  margin-top: 1rem; padding-top: 0.8rem;
+  border-top: 1px solid var(--border);
 }
 .chip {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.6rem;
-    background: #EFF6FF;
-    border: 1px solid #BFDBFE;
-    color: #1D4ED8;
-    border-radius: 3px;
-    padding: 0.18rem 0.55rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  background: var(--chip-bg);
+  border: 1px solid var(--chip-br);
+  color: var(--chip-t);
+  border-radius: 3px;
+  padding: 0.18rem 0.55rem;
 }
 .toks {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.6rem;
-    color: #CBD5E1;
-    margin-top: 0.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  color: var(--t3);
+  margin-top: 0.5rem;
+  opacity: 0.5;
 }
 
 /* ── Source chunks ── */
 .chunk {
-    background: #F8FAFC;
-    border: 1px solid #E2E8F0;
-    border-radius: 7px;
-    padding: 0.9rem 1.1rem;
-    margin-bottom: 0.45rem;
+  background: var(--chunk-bg);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 0.9rem 1.1rem;
+  margin-bottom: 0.45rem;
 }
 .chunk-m {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.6rem;
-    color: #64748B;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 0.3rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  color: var(--t3);
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.3rem;
 }
-.chunk-s { color: #15803D; font-weight: 600; }
-.chunk-b { font-size: 0.82rem; color: #475569; line-height: 1.65; }
+.chunk-s { color: var(--score-c); font-weight: 600; }
+.chunk-b { font-size: 0.82rem; color: var(--t2); line-height: 1.65; }
 
 /* ── In My Mind ── */
 .mind {
-    background: #EEF2FF;
-    border: 1px solid #C7D2FE;
-    border-left: 3px solid #4338CA;
-    border-radius: 8px;
-    padding: 1.1rem 1.5rem;
-    font-size: 0.88rem;
-    color: #312E81;
-    line-height: 1.8;
-    margin: 1.2rem 0;
+  background: var(--mind-bg);
+  border: 1px solid var(--mind-br);
+  border-left: 3px solid var(--mind-acc);
+  border-radius: 8px;
+  padding: 1.1rem 1.5rem;
+  font-size: 0.88rem;
+  color: var(--mind-t);
+  line-height: 1.8;
+  margin: 1.2rem 0;
 }
 .mind-l {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.58rem;
-    letter-spacing: 0.16em;
-    color: #4338CA;
-    text-transform: uppercase;
-    display: block;
-    margin-bottom: 0.45rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.16em;
+  color: var(--mind-acc);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.45rem;
 }
 
-/* ── Warn / no-result ── */
+/* ── Warn ── */
 .warn {
-    background: #F0FDF4;
-    border: 1px solid #BBF7D0;
-    border-radius: 7px;
-    padding: 0.8rem 1.1rem;
-    font-size: 0.84rem;
-    color: #15803D;
-}
-
-/* ── Sidebar ── */
-[data-testid="stSidebar"] {
-    background: #F1F5F9 !important;
-    border-right: 1px solid #E2E8F0;
+  background: var(--warn-bg);
+  border: 1px solid var(--warn-br);
+  border-radius: 7px;
+  padding: 0.8rem 1.1rem;
+  font-size: 0.84rem;
+  color: var(--warn-t);
 }
 
 /* ── Tabs ── */
 .stTabs [data-baseweb="tab-list"] {
-    gap: 0;
-    border-bottom: 2px solid #E2E8F0;
-    background: transparent;
-    margin-top: 1rem;
+  gap: 0;
+  border-bottom: 2px solid var(--border);
+  background: transparent;
+  margin-top: 0.5rem;
 }
 .stTabs [data-baseweb="tab"] {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #94A3B8;
-    padding: 0.6rem 1.4rem;
-    border: none;
-    background: transparent;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--t3);
+  padding: 0.6rem 1.4rem;
+  border: none;
+  background: transparent;
 }
 .stTabs [aria-selected="true"] {
-    color: #1D4ED8 !important;
-    border-bottom: 2px solid #1D4ED8 !important;
-    background: transparent !important;
-    font-weight: 600;
+  color: var(--accent) !important;
+  border-bottom: 2px solid var(--accent) !important;
+  background: transparent !important;
+  font-weight: 600;
 }
-
-/* ── Streamlit widget label overrides ── */
-label, .stSlider label, .stMultiSelect label,
-.stSelectbox label, .stTextArea label {
-    color: #334155 !important;
-    font-size: 0.82rem !important;
-    font-weight: 500 !important;
-}
-
-/* ── Plotly chart backgrounds match page ── */
-.js-plotly-plot { border-radius: 10px; overflow: hidden; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -402,18 +463,6 @@ ticker_years, all_years = load_metadata()
 all_chunks_clean = [c for c in all_chunks if str(c.get("year","")) != "unknown"]
 
 # ── Nav ───────────────────────────────────────────────────────────────────────
-st.markdown("""
-<div class="topbar">
-  <div class="topbar-left">
-    <div class="topbar-brand">Fin<span>Sight</span></div>
-    <div class="topbar-tag">SEC 10-K Intelligence</div>
-  </div>
-  <div class="topbar-right">8 companies &nbsp;&middot;&nbsp; 2021&ndash;2025 &nbsp;&middot;&nbsp;
-    <a href="https://github.com/mittaladitya17/finsight-rag" target="_blank"
-       style="color:#1D4ED8;text-decoration:none;">GitHub &#8599;</a>
-  </div>
-</div>
-""", unsafe_allow_html=True)
 
 
 # ── Tabs ──────────────────────────────────────────────────────────────────────
@@ -429,6 +478,13 @@ with tab_about:
     n_filings = len(set(f"{c['ticker']}_{c['year']}" for c in all_chunks_clean))
 
     st.markdown(f"""
+    <div class="brand-bar">
+      <div class="brand-name">Fin<span>Sight</span></div>
+      <div class="brand-right">
+        8 companies &nbsp;·&nbsp; 2021–2025 &nbsp;·&nbsp;
+        <a href="https://github.com/mittaladitya17/finsight-rag" target="_blank">GitHub ↗</a>
+      </div>
+    </div>
     <div class="hero">
       <div class="hero-kicker">Fintech · SEC 10-K Intelligence · RAG + XBRL</div>
       <h1 class="hero-h1">Ask anything about<br><em>fintech risk disclosures</em></h1>
@@ -586,6 +642,15 @@ with tab_about:
 # ════════════════════════════════════════════════════════════
 with tab_query:
 
+    st.markdown("""
+    <div class="brand-bar">
+      <div class="brand-name">Fin<span>Sight</span></div>
+      <div class="brand-right">
+        <a href="https://github.com/mittaladitya17/finsight-rag" target="_blank">GitHub ↗</a>
+      </div>
+    </div>
+    """, unsafe_allow_html=True)
+
     if load_error:
         st.error(f"Pipeline failed to load: {load_error}")
         st.stop()
@@ -701,6 +766,14 @@ with tab_analytics:
     import pandas as pd
     import plotly.graph_objects as go
     from plotly.subplots import make_subplots
+
+    st.markdown("""
+    <div class="brand-bar">
+      <div class="brand-name">Fin<span>Sight</span></div>
+      <div class="brand-right">Financial Analytics · SEC XBRL</div>
+    </div>
+    """, unsafe_allow_html=True)
+
 
     BASE = dict(
         template="plotly_white",
@@ -844,6 +917,14 @@ with tab_analytics:
 with tab_corpus:
     import pandas as pd
     import plotly.graph_objects as go
+
+    st.markdown("""
+    <div class="brand-bar">
+      <div class="brand-name">Fin<span>Sight</span></div>
+      <div class="brand-right">Corpus · 8 companies · 470 chunks</div>
+    </div>
+    """, unsafe_allow_html=True)
+
 
     BASE2 = dict(
         template="plotly_white",
