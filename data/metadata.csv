@@ -1,0 +1,55 @@
+ticker,company,year,section,file_path,char_count,source_htm
+AFRM,Affirm Holdings,2021,1A,data/processed/AFRM_2021_1A.txt,15000,data/raw/sec-edgar-filings/AFRM/10-K/0001820953-21-000102/full-submission.txt
+AFRM,Affirm Holdings,2021,7,data/processed/AFRM_2021_7.txt,15000,data/raw/sec-edgar-filings/AFRM/10-K/0001820953-21-000102/full-submission.txt
+AFRM,Affirm Holdings,2021,7A,data/processed/AFRM_2021_7A.txt,15000,data/raw/sec-edgar-filings/AFRM/10-K/0001820953-21-000102/full-submission.txt
+AFRM,Affirm Holdings,2024,1A,data/processed/AFRM_2024_1A.txt,15000,data/raw/sec-edgar-filings/AFRM/10-K/0001820953-24-000035/full-submission.txt
+AFRM,Affirm Holdings,2024,7,data/processed/AFRM_2024_7.txt,15000,data/raw/sec-edgar-filings/AFRM/10-K/0001820953-24-000035/full-submission.txt
+AFRM,Affirm Holdings,2024,7A,data/processed/AFRM_2024_7A.txt,15000,data/raw/sec-edgar-filings/AFRM/10-K/0001820953-24-000035/full-submission.txt
+AFRM,Affirm Holdings,2022,1A,data/processed/AFRM_2022_1A.txt,15000,data/raw/sec-edgar-filings/AFRM/10-K/0001628280-22-023828/full-submission.txt
+AFRM,Affirm Holdings,2022,7,data/processed/AFRM_2022_7.txt,15000,data/raw/sec-edgar-filings/AFRM/10-K/0001628280-22-023828/full-submission.txt
+AFRM,Affirm Holdings,2022,7A,data/processed/AFRM_2022_7A.txt,15000,data/raw/sec-edgar-filings/AFRM/10-K/0001628280-22-023828/full-submission.txt
+AFRM,Affirm Holdings,2023,1A,data/processed/AFRM_2023_1A.txt,15000,data/raw/sec-edgar-filings/AFRM/10-K/0001820953-23-000016/full-submission.txt
+AFRM,Affirm Holdings,2023,7,data/processed/AFRM_2023_7.txt,15000,data/raw/sec-edgar-filings/AFRM/10-K/0001820953-23-000016/full-submission.txt
+AFRM,Affirm Holdings,2023,7A,data/processed/AFRM_2023_7A.txt,15000,data/raw/sec-edgar-filings/AFRM/10-K/0001820953-23-000016/full-submission.txt
+SOFI,SoFi Technologies,2024,1A,data/processed/SOFI_2024_1A.txt,15000,data/raw/sec-edgar-filings/SOFI/10-K/0001818874-24-000026/full-submission.txt
+SOFI,SoFi Technologies,2024,7,data/processed/SOFI_2024_7.txt,15000,data/raw/sec-edgar-filings/SOFI/10-K/0001818874-24-000026/full-submission.txt
+SOFI,SoFi Technologies,2024,7A,data/processed/SOFI_2024_7A.txt,15000,data/raw/sec-edgar-filings/SOFI/10-K/0001818874-24-000026/full-submission.txt
+SOFI,SoFi Technologies,2022,1A,data/processed/SOFI_2022_1A.txt,15000,data/raw/sec-edgar-filings/SOFI/10-K/0001818874-22-000031/full-submission.txt
+SOFI,SoFi Technologies,2022,7,data/processed/SOFI_2022_7.txt,15000,data/raw/sec-edgar-filings/SOFI/10-K/0001818874-22-000031/full-submission.txt
+SOFI,SoFi Technologies,2022,7A,data/processed/SOFI_2022_7A.txt,15000,data/raw/sec-edgar-filings/SOFI/10-K/0001818874-22-000031/full-submission.txt
+SOFI,SoFi Technologies,2025,1A,data/processed/SOFI_2025_1A.txt,15000,data/raw/sec-edgar-filings/SOFI/10-K/0001818874-25-000016/full-submission.txt
+SOFI,SoFi Technologies,2025,7,data/processed/SOFI_2025_7.txt,15000,data/raw/sec-edgar-filings/SOFI/10-K/0001818874-25-000016/full-submission.txt
+SOFI,SoFi Technologies,2025,7A,data/processed/SOFI_2025_7A.txt,15000,data/raw/sec-edgar-filings/SOFI/10-K/0001818874-25-000016/full-submission.txt
+SOFI,SoFi Technologies,2023,1A,data/processed/SOFI_2023_1A.txt,15000,data/raw/sec-edgar-filings/SOFI/10-K/0001818874-23-000018/full-submission.txt
+SOFI,SoFi Technologies,2023,7,data/processed/SOFI_2023_7.txt,15000,data/raw/sec-edgar-filings/SOFI/10-K/0001818874-23-000018/full-submission.txt
+SOFI,SoFi Technologies,2023,7A,data/processed/SOFI_2023_7A.txt,15000,data/raw/sec-edgar-filings/SOFI/10-K/0001818874-23-000018/full-submission.txt
+LC,LendingClub,2022,1A,data/processed/LC_2022_1A.txt,15000,data/raw/sec-edgar-filings/LC/10-K/0001409970-22-000006/full-submission.txt
+LC,LendingClub,2022,7,data/processed/LC_2022_7.txt,15000,data/raw/sec-edgar-filings/LC/10-K/0001409970-22-000006/full-submission.txt
+LC,LendingClub,2022,7A,data/processed/LC_2022_7A.txt,15000,data/raw/sec-edgar-filings/LC/10-K/0001409970-22-000006/full-submission.txt
+LC,LendingClub,2025,1A,data/processed/LC_2025_1A.txt,15000,data/raw/sec-edgar-filings/LC/10-K/0001409970-25-000009/full-submission.txt
+LC,LendingClub,2025,7,data/processed/LC_2025_7.txt,15000,data/raw/sec-edgar-filings/LC/10-K/0001409970-25-000009/full-submission.txt
+LC,LendingClub,2025,7A,data/processed/LC_2025_7A.txt,15000,data/raw/sec-edgar-filings/LC/10-K/0001409970-25-000009/full-submission.txt
+LC,LendingClub,2023,1A,data/processed/LC_2023_1A.txt,15000,data/raw/sec-edgar-filings/LC/10-K/0001409970-23-000012/full-submission.txt
+LC,LendingClub,2023,7,data/processed/LC_2023_7.txt,15000,data/raw/sec-edgar-filings/LC/10-K/0001409970-23-000012/full-submission.txt
+LC,LendingClub,2023,7A,data/processed/LC_2023_7A.txt,15000,data/raw/sec-edgar-filings/LC/10-K/0001409970-23-000012/full-submission.txt
+UPST,Upstart Holdings,2022,1A,data/processed/UPST_2022_1A.txt,15000,data/raw/sec-edgar-filings/UPST/10-K/0001647639-22-000009/full-submission.txt
+UPST,Upstart Holdings,2022,7,data/processed/UPST_2022_7.txt,15000,data/raw/sec-edgar-filings/UPST/10-K/0001647639-22-000009/full-submission.txt
+UPST,Upstart Holdings,2022,7A,data/processed/UPST_2022_7A.txt,15000,data/raw/sec-edgar-filings/UPST/10-K/0001647639-22-000009/full-submission.txt
+UPST,Upstart Holdings,2023,1A,data/processed/UPST_2023_1A.txt,15000,data/raw/sec-edgar-filings/UPST/10-K/0001647639-23-000021/full-submission.txt
+UPST,Upstart Holdings,2023,7,data/processed/UPST_2023_7.txt,15000,data/raw/sec-edgar-filings/UPST/10-K/0001647639-23-000021/full-submission.txt
+UPST,Upstart Holdings,2023,7A,data/processed/UPST_2023_7A.txt,15000,data/raw/sec-edgar-filings/UPST/10-K/0001647639-23-000021/full-submission.txt
+UPST,Upstart Holdings,2024,1A,data/processed/UPST_2024_1A.txt,15000,data/raw/sec-edgar-filings/UPST/10-K/0001647639-24-000009/full-submission.txt
+UPST,Upstart Holdings,2024,7,data/processed/UPST_2024_7.txt,15000,data/raw/sec-edgar-filings/UPST/10-K/0001647639-24-000009/full-submission.txt
+UPST,Upstart Holdings,2024,7A,data/processed/UPST_2024_7A.txt,15000,data/raw/sec-edgar-filings/UPST/10-K/0001647639-24-000009/full-submission.txt
+ALLY,Ally Financial,2025,1A,data/processed/ALLY_2025_1A.txt,15000,data/raw/sec-edgar-filings/ALLY/10-K/0000040729-25-000006/full-submission.txt
+ALLY,Ally Financial,2025,7,data/processed/ALLY_2025_7.txt,15000,data/raw/sec-edgar-filings/ALLY/10-K/0000040729-25-000006/full-submission.txt
+ALLY,Ally Financial,2025,7A,data/processed/ALLY_2025_7A.txt,15000,data/raw/sec-edgar-filings/ALLY/10-K/0000040729-25-000006/full-submission.txt
+ALLY,Ally Financial,2024,1A,data/processed/ALLY_2024_1A.txt,15000,data/raw/sec-edgar-filings/ALLY/10-K/0000040729-24-000004/full-submission.txt
+ALLY,Ally Financial,2024,7,data/processed/ALLY_2024_7.txt,15000,data/raw/sec-edgar-filings/ALLY/10-K/0000040729-24-000004/full-submission.txt
+ALLY,Ally Financial,2024,7A,data/processed/ALLY_2024_7A.txt,15000,data/raw/sec-edgar-filings/ALLY/10-K/0000040729-24-000004/full-submission.txt
+ALLY,Ally Financial,2023,1A,data/processed/ALLY_2023_1A.txt,15000,data/raw/sec-edgar-filings/ALLY/10-K/0000040729-23-000005/full-submission.txt
+ALLY,Ally Financial,2023,7,data/processed/ALLY_2023_7.txt,15000,data/raw/sec-edgar-filings/ALLY/10-K/0000040729-23-000005/full-submission.txt
+ALLY,Ally Financial,2023,7A,data/processed/ALLY_2023_7A.txt,15000,data/raw/sec-edgar-filings/ALLY/10-K/0000040729-23-000005/full-submission.txt
+ALLY,Ally Financial,2022,1A,data/processed/ALLY_2022_1A.txt,15000,data/raw/sec-edgar-filings/ALLY/10-K/0000040729-22-000007/full-submission.txt
+ALLY,Ally Financial,2022,7,data/processed/ALLY_2022_7.txt,15000,data/raw/sec-edgar-filings/ALLY/10-K/0000040729-22-000007/full-submission.txt
+ALLY,Ally Financial,2022,7A,data/processed/ALLY_2022_7A.txt,15000,data/raw/sec-edgar-filings/ALLY/10-K/0000040729-22-000007/full-submission.txt
