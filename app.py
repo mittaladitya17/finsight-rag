@@ -19,137 +19,303 @@ st.set_page_config(
 )
 
 # ── Styles ────────────────────────────────────────────────────────────────────
+# Palette:
+#   --bg       #F8FAFC  (near-white page background)
+#   --surface  #FFFFFF  (card / panel surfaces)
+#   --border   #E2E8F0  (subtle dividers)
+#   --text-1   #0F172A  (headings — near-black, high contrast)
+#   --text-2   #334155  (body copy)
+#   --text-3   #64748B  (secondary / captions)
+#   --accent   #1D4ED8  (Blue 700 — primary action / highlights)
+#   --accent-l #DBEAFE  (Blue 100 — pill backgrounds)
+#   --green    #15803D  (positive / score)
+#   --indigo   #4338CA  (In My Mind accent)
+
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
-html, body, [class*="css"] { font-family: 'Inter', sans-serif; }
+html, body, [class*="css"] {
+    font-family: 'Inter', sans-serif;
+    background-color: #F8FAFC !important;
+    color: #0F172A !important;
+}
 .block-container { padding: 0 2rem 3rem; max-width: 1200px; }
 
-/* Nav */
-.nav { display:flex; align-items:center; justify-content:space-between;
-       padding:1rem 0; border-bottom:1px solid #0f1929; margin-bottom:0; }
-.nav-brand { font-family:'JetBrains Mono',monospace; font-size:1rem;
-             font-weight:500; color:#e2eaf5; letter-spacing:0.05em; }
-.nav-brand span { color:#3b82f6; }
-.nav-sub { font-size:0.72rem; color:#1e3050; }
+/* ── Topbar ── */
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0 0.9rem;
+    border-bottom: 2px solid #E2E8F0;
+    margin-bottom: 0;
+}
+.topbar-left { display: flex; align-items: baseline; gap: 0.6rem; }
+.topbar-brand {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #0F172A;
+    letter-spacing: 0.04em;
+}
+.topbar-brand span { color: #1D4ED8; }
+.topbar-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    color: #94A3B8;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+.topbar-right { font-size: 0.72rem; color: #94A3B8; }
 
-/* Hero */
-.hero { padding:3.5rem 0 2.5rem; border-bottom:1px solid #0f1929; }
-.hero-kicker { font-family:'JetBrains Mono',monospace; font-size:0.65rem;
-               letter-spacing:0.22em; color:#3b82f6; text-transform:uppercase;
-               margin-bottom:0.7rem; }
-.hero-h1 { font-size:2.6rem; font-weight:700; color:#e2eaf5; line-height:1.12;
-           margin:0 0 1rem; }
-.hero-h1 em { color:#3b82f6; font-style:normal; }
-.hero-lead { font-size:0.95rem; color:#2d4a6a; max-width:520px;
-             line-height:1.75; margin:0 0 2rem; }
-.hero-pills { display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:2.5rem; }
-.pill { font-family:'JetBrains Mono',monospace; font-size:0.62rem;
-        letter-spacing:0.08em; background:#040d1a; border:1px solid #0f2540;
-        color:#2d5080; border-radius:4px; padding:0.22rem 0.7rem; }
+/* ── Hero ── */
+.hero {
+    padding: 3rem 0 2.5rem;
+    border-bottom: 1px solid #E2E8F0;
+}
+.hero-kicker {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    color: #1D4ED8;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+}
+.hero-h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #0F172A;
+    line-height: 1.15;
+    margin: 0 0 1rem;
+}
+.hero-h1 em { color: #1D4ED8; font-style: normal; }
+.hero-lead {
+    font-size: 0.95rem;
+    color: #475569;
+    max-width: 540px;
+    line-height: 1.75;
+    margin: 0 0 2rem;
+}
+.hero-pills { display: flex; gap: 0.45rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+.pill {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.61rem;
+    letter-spacing: 0.06em;
+    background: #DBEAFE;
+    border: 1px solid #BFDBFE;
+    color: #1D4ED8;
+    border-radius: 4px;
+    padding: 0.22rem 0.65rem;
+}
 
-/* Stats row */
-.stats { display:grid; grid-template-columns:repeat(5,1fr); gap:1px;
-         background:#0a1628; border:1px solid #0a1628; border-radius:10px;
-         overflow:hidden; margin-bottom:3rem; }
-.stat { background:#030c1a; padding:1.1rem 1.4rem; }
-.stat-n { font-family:'JetBrains Mono',monospace; font-size:1.6rem;
-          font-weight:500; color:#e2eaf5; line-height:1; }
-.stat-l { font-size:0.68rem; color:#1a3050; margin-top:0.2rem;
-          letter-spacing:0.04em; }
+/* ── Stats strip ── */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1px;
+    background: #E2E8F0;
+    border: 1px solid #E2E8F0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 3rem;
+}
+.stat { background: #FFFFFF; padding: 1.1rem 1.4rem; }
+.stat-n {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: #0F172A;
+    line-height: 1;
+}
+.stat-l {
+    font-size: 0.68rem;
+    color: #94A3B8;
+    margin-top: 0.25rem;
+    letter-spacing: 0.03em;
+}
 
-/* How */
-.how { display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
-       background:#0a1628; border:1px solid #0a1628; border-radius:10px;
-       overflow:hidden; margin-bottom:0.5rem; }
-.how-c { background:#030c1a; padding:1.1rem 1.3rem; }
-.how-n { font-family:'JetBrains Mono',monospace; font-size:0.6rem;
-         color:#3b82f6; letter-spacing:0.12em; margin-bottom:0.35rem; }
-.how-t { font-size:0.82rem; font-weight:600; color:#94aac0; margin-bottom:0.2rem; }
-.how-d { font-size:0.75rem; color:#1a3050; line-height:1.55; }
+/* ── How it works ── */
+.how {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: #E2E8F0;
+    border: 1px solid #E2E8F0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+.how-c { background: #FFFFFF; padding: 1.1rem 1.3rem; }
+.how-n {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    color: #1D4ED8;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.35rem;
+}
+.how-t { font-size: 0.82rem; font-weight: 600; color: #1E293B; margin-bottom: 0.25rem; }
+.how-d { font-size: 0.75rem; color: #64748B; line-height: 1.55; }
 
-/* Section label */
-.slabel { font-family:'JetBrains Mono',monospace; font-size:0.62rem;
-          letter-spacing:0.18em; color:#3b82f6; text-transform:uppercase;
-          margin:2rem 0 0.8rem; padding-bottom:0.4rem;
-          border-bottom:1px solid #0a1628; }
+/* ── Section label ── */
+.slabel {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    color: #1D4ED8;
+    text-transform: uppercase;
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid #E2E8F0;
+}
 
-/* Example buttons */
-.ex-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:0.6rem;
-           margin-bottom:1rem; }
+/* ── Coverage cards ── */
+.cov-card {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    padding: 0.9rem 1.1rem;
+}
+.cov-ticker {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #1D4ED8;
+    margin-bottom: 0.2rem;
+}
+.cov-name { font-size: 0.8rem; font-weight: 600; color: #1E293B; margin-bottom: 0.25rem; }
+.cov-years { font-size: 0.68rem; color: #94A3B8; }
 
-/* Answer */
-.answer { background:#030c1a; border:1px solid #0a1628;
-          border-top:2px solid #3b82f6; border-radius:10px;
-          padding:1.6rem 2rem; margin-top:1rem; }
-.answer-eye { font-family:'JetBrains Mono',monospace; font-size:0.6rem;
-              letter-spacing:0.18em; color:#3b82f6; text-transform:uppercase;
-              margin-bottom:0.9rem; }
-.answer-body { font-size:0.9rem; color:#94aac0; line-height:1.85; }
-.chips { display:flex; flex-wrap:wrap; gap:0.35rem; margin-top:1rem;
-         padding-top:0.8rem; border-top:1px solid #0a1628; }
-.chip { font-family:'JetBrains Mono',monospace; font-size:0.6rem;
-        background:#040f20; border:1px solid #0f2540; color:#3b82f6;
-        border-radius:3px; padding:0.16rem 0.55rem; }
-.toks { font-family:'JetBrains Mono',monospace; font-size:0.6rem;
-        color:#0f2030; margin-top:0.5rem; }
+/* ── Answer ── */
+.answer {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-top: 3px solid #1D4ED8;
+    border-radius: 10px;
+    padding: 1.6rem 2rem;
+    margin-top: 1rem;
+}
+.answer-eye {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.16em;
+    color: #1D4ED8;
+    text-transform: uppercase;
+    margin-bottom: 0.9rem;
+}
+.answer-body { font-size: 0.92rem; color: #1E293B; line-height: 1.85; }
+.chips {
+    display: flex; flex-wrap: wrap; gap: 0.35rem;
+    margin-top: 1rem; padding-top: 0.8rem;
+    border-top: 1px solid #F1F5F9;
+}
+.chip {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    background: #EFF6FF;
+    border: 1px solid #BFDBFE;
+    color: #1D4ED8;
+    border-radius: 3px;
+    padding: 0.18rem 0.55rem;
+}
+.toks {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    color: #CBD5E1;
+    margin-top: 0.5rem;
+}
 
-/* Chunk */
-.chunk { background:#020912; border:1px solid #0a1628; border-radius:7px;
-         padding:0.9rem 1.1rem; margin-bottom:0.45rem; }
-.chunk-m { font-family:'JetBrains Mono',monospace; font-size:0.6rem;
-           color:#1a3a5a; display:flex; justify-content:space-between;
-           margin-bottom:0.3rem; }
-.chunk-s { color:#22c55e; }
-.chunk-b { font-size:0.8rem; color:#1a3050; line-height:1.6; }
+/* ── Source chunks ── */
+.chunk {
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    border-radius: 7px;
+    padding: 0.9rem 1.1rem;
+    margin-bottom: 0.45rem;
+}
+.chunk-m {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    color: #64748B;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.3rem;
+}
+.chunk-s { color: #15803D; font-weight: 600; }
+.chunk-b { font-size: 0.82rem; color: #475569; line-height: 1.65; }
 
-/* Metric card */
-.mcard { background:#030c1a; border:1px solid #0a1628; border-radius:9px;
-         padding:1.1rem 1.3rem; }
-.mcard-lbl { font-family:'JetBrains Mono',monospace; font-size:0.6rem;
-             color:#1a3050; letter-spacing:0.1em; text-transform:uppercase;
-             margin-bottom:0.3rem; }
-.mcard-val { font-size:1.4rem; font-weight:600; color:#e2eaf5; line-height:1; }
-.mcard-sub { font-size:0.72rem; color:#1a3050; margin-top:0.2rem; }
+/* ── In My Mind ── */
+.mind {
+    background: #EEF2FF;
+    border: 1px solid #C7D2FE;
+    border-left: 3px solid #4338CA;
+    border-radius: 8px;
+    padding: 1.1rem 1.5rem;
+    font-size: 0.88rem;
+    color: #312E81;
+    line-height: 1.8;
+    margin: 1.2rem 0;
+}
+.mind-l {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.16em;
+    color: #4338CA;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.45rem;
+}
 
-/* Mind */
-.mind { background:#060412; border:1px solid #1e1060;
-        border-left:3px solid #6366f1; border-radius:8px;
-        padding:1.1rem 1.4rem; font-size:0.87rem; color:#6366f1;
-        line-height:1.8; margin:1rem 0; }
-.mind-l { font-family:'JetBrains Mono',monospace; font-size:0.58rem;
-          letter-spacing:0.16em; color:#4338ca; text-transform:uppercase;
-          display:block; margin-bottom:0.4rem; }
+/* ── Warn / no-result ── */
+.warn {
+    background: #F0FDF4;
+    border: 1px solid #BBF7D0;
+    border-radius: 7px;
+    padding: 0.8rem 1.1rem;
+    font-size: 0.84rem;
+    color: #15803D;
+}
 
-/* Coverage badge */
-.cov-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:0.6rem;
-            margin-bottom:1rem; }
-.cov-card { background:#030c1a; border:1px solid #0a1628; border-radius:8px;
-            padding:0.85rem 1rem; }
-.cov-ticker { font-family:'JetBrains Mono',monospace; font-size:0.72rem;
-              color:#3b82f6; margin-bottom:0.2rem; }
-.cov-name { font-size:0.78rem; color:#94aac0; font-weight:500; margin-bottom:0.3rem; }
-.cov-years { font-size:0.68rem; color:#1a3050; }
+/* ── Sidebar ── */
+[data-testid="stSidebar"] {
+    background: #F1F5F9 !important;
+    border-right: 1px solid #E2E8F0;
+}
 
-/* Sidebar */
-[data-testid="stSidebar"] { background:#020812 !important;
-    border-right:1px solid #0a1628; }
-[data-testid="stSidebar"] * { color:#1a3050 !important; }
-
-/* Tabs */
-.stTabs [data-baseweb="tab-list"] { gap:0; border-bottom:1px solid #0a1628;
-    background:transparent; margin-top:1.5rem; }
+/* ── Tabs ── */
+.stTabs [data-baseweb="tab-list"] {
+    gap: 0;
+    border-bottom: 2px solid #E2E8F0;
+    background: transparent;
+    margin-top: 1rem;
+}
 .stTabs [data-baseweb="tab"] {
-    font-family:'JetBrains Mono',monospace; font-size:0.65rem;
-    letter-spacing:0.12em; text-transform:uppercase; color:#1a3050;
-    padding:0.55rem 1.4rem; border:none; background:transparent; }
-.stTabs [aria-selected="true"] { color:#3b82f6 !important;
-    border-bottom:2px solid #3b82f6 !important; background:transparent !important; }
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #94A3B8;
+    padding: 0.6rem 1.4rem;
+    border: none;
+    background: transparent;
+}
+.stTabs [aria-selected="true"] {
+    color: #1D4ED8 !important;
+    border-bottom: 2px solid #1D4ED8 !important;
+    background: transparent !important;
+    font-weight: 600;
+}
 
-/* Warn */
-.warn { background:#060f06; border:1px solid #0f3010; border-radius:7px;
-        padding:0.8rem 1.1rem; font-size:0.82rem; color:#22c55e; }
+/* ── Streamlit widget label overrides ── */
+label, .stSlider label, .stMultiSelect label,
+.stSelectbox label, .stTextArea label {
+    color: #334155 !important;
+    font-size: 0.82rem !important;
+    font-weight: 500 !important;
+}
+
+/* ── Plotly chart backgrounds match page ── */
+.js-plotly-plot { border-radius: 10px; overflow: hidden; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -237,11 +403,18 @@ all_chunks_clean = [c for c in all_chunks if str(c.get("year","")) != "unknown"]
 
 # ── Nav ───────────────────────────────────────────────────────────────────────
 st.markdown("""
-<div class="nav">
-  <div class="nav-brand">Fin<span>Sight</span></div>
-  <div class="nav-sub">SEC 10-K Intelligence · 8 companies · 2021–2025</div>
+<div class="topbar">
+  <div class="topbar-left">
+    <div class="topbar-brand">Fin<span>Sight</span></div>
+    <div class="topbar-tag">SEC 10-K Intelligence</div>
+  </div>
+  <div class="topbar-right">8 companies &nbsp;&middot;&nbsp; 2021&ndash;2025 &nbsp;&middot;&nbsp;
+    <a href="https://github.com/mittaladitya17/finsight-rag" target="_blank"
+       style="color:#1D4ED8;text-decoration:none;">GitHub &#8599;</a>
+  </div>
 </div>
 """, unsafe_allow_html=True)
+
 
 # ── Tabs ──────────────────────────────────────────────────────────────────────
 tab_about, tab_query, tab_analytics, tab_corpus = st.tabs([
@@ -397,14 +570,14 @@ with tab_about:
     """, unsafe_allow_html=True)
 
     st.markdown("""
-    <div style="font-size:0.72rem;color:#0a1628;text-align:center;
+    <div style="font-size:0.72rem;color:#94A3B8;text-align:center;
                 padding:1.5rem 0 0.5rem;border-top:1px solid #0a1628;margin-top:2rem;">
       Built by
       <a href="https://github.com/mittaladitya17" target="_blank"
-         style="color:#1a3a6a;text-decoration:none;">Aditya Mittal</a>
+         style="color:#1D4ED8;text-decoration:none;">Aditya Mittal</a>
       &nbsp;·&nbsp;
       <a href="https://github.com/mittaladitya17/finsight-rag" target="_blank"
-         style="color:#1a3a6a;text-decoration:none;">GitHub ↗</a>
+         style="color:#1D4ED8;text-decoration:none;">GitHub ↗</a>
     </div>
     """, unsafe_allow_html=True)
 
@@ -530,14 +703,14 @@ with tab_analytics:
     from plotly.subplots import make_subplots
 
     BASE = dict(
-        template="plotly_dark",
-        paper_bgcolor="#030c1a",
-        plot_bgcolor="#030c1a",
-        font=dict(color="#2d4a6a", family="Inter"),
+        template="plotly_white",
+        paper_bgcolor="#FFFFFF",
+        plot_bgcolor="#F8FAFC",
+        font=dict(color="#334155", family="Inter"),
         margin=dict(l=50, r=20, t=45, b=40),
     )
-    COLORS = ["#3b82f6","#22c55e","#f59e0b","#a78bfa","#f472b6",
-              "#34d399","#fb923c","#60a5fa"]
+    COLORS = ["#1D4ED8","#15803D","#B45309","#7C3AED","#BE185D",
+              "#0E7490","#9A3412","#1E40AF"]
 
     st.markdown('<div class="slabel">Live financial data from SEC XBRL API</div>',
                 unsafe_allow_html=True)
@@ -616,7 +789,7 @@ with tab_analytics:
                 orientation="h",
                 marker=dict(
                     color=bdf["value"],
-                    colorscale=[[0,"#0a1628"],[1,"#3b82f6"]],
+                    colorscale=[[0,"#DBEAFE"],[1,"#1D4ED8"]],
                     showscale=False
                 ),
                 text=[f"${v:.2f}B ({yr})" for v, yr in zip(bdf["value"], bdf["year"])],
@@ -673,10 +846,10 @@ with tab_corpus:
     import plotly.graph_objects as go
 
     BASE2 = dict(
-        template="plotly_dark",
-        paper_bgcolor="#030c1a",
-        plot_bgcolor="#030c1a",
-        font=dict(color="#2d4a6a", family="Inter"),
+        template="plotly_white",
+        paper_bgcolor="#FFFFFF",
+        plot_bgcolor="#F8FAFC",
+        font=dict(color="#334155", family="Inter"),
         margin=dict(l=50, r=20, t=45, b=40),
     )
 
@@ -695,11 +868,11 @@ with tab_corpus:
         z=pivot_wide.values,
         x=pivot_wide.columns.astype(str).tolist(),
         y=pivot_wide.index.tolist(),
-        colorscale=[[0,"#030c1a"],[0.01,"#0a1f3a"],[1,"#3b82f6"]],
+        colorscale=[[0,"#EFF6FF"],[0.01,"#BFDBFE"],[1,"#1D4ED8"]],
         showscale=False,
         text=pivot_wide.values.astype(int),
         texttemplate="%{text}",
-        textfont=dict(size=12, color="#4a7aaa"),
+        textfont=dict(size=12, color="#1E293B"),
     ))
     fig.update_layout(**BASE2, title="Sections indexed per company × year",
                       height=360)
@@ -723,7 +896,7 @@ with tab_corpus:
             x=comp_counts["n"], y=comp_counts["ticker"],
             orientation="h",
             marker=dict(color=comp_counts["n"],
-                        colorscale=[[0,"#0a1628"],[1,"#3b82f6"]],
+                        colorscale=[[0,"#DBEAFE"],[1,"#1D4ED8"]],
                         showscale=False),
         ))
         fig3.update_layout(**BASE2, title="Sections per company", height=280)
