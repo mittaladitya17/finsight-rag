@@ -53,3 +53,33 @@ ALLY,Ally Financial,2023,7A,data/processed/ALLY_2023_7A.txt,15000,data/raw/sec-e
 ALLY,Ally Financial,2022,1A,data/processed/ALLY_2022_1A.txt,15000,data/raw/sec-edgar-filings/ALLY/10-K/0000040729-22-000007/full-submission.txt
 ALLY,Ally Financial,2022,7,data/processed/ALLY_2022_7.txt,15000,data/raw/sec-edgar-filings/ALLY/10-K/0000040729-22-000007/full-submission.txt
 ALLY,Ally Financial,2022,7A,data/processed/ALLY_2022_7A.txt,15000,data/raw/sec-edgar-filings/ALLY/10-K/0000040729-22-000007/full-submission.txt
+PGY,Pagaya Technologies,2025,1A,data/processed/PGY_2025_1A.txt,15000,data/raw/sec-edgar-filings/PGY/10-K/0001883085-25-000050/full-submission.txt
+PGY,Pagaya Technologies,2025,7,data/processed/PGY_2025_7.txt,15000,data/raw/sec-edgar-filings/PGY/10-K/0001883085-25-000050/full-submission.txt
+PGY,Pagaya Technologies,2025,7A,data/processed/PGY_2025_7A.txt,15000,data/raw/sec-edgar-filings/PGY/10-K/0001883085-25-000050/full-submission.txt
+PGY,Pagaya Technologies,2024,1A,data/processed/PGY_2024_1A.txt,15000,data/raw/sec-edgar-filings/PGY/10-K/0001883085-24-000060/full-submission.txt
+PGY,Pagaya Technologies,2024,7,data/processed/PGY_2024_7.txt,15000,data/raw/sec-edgar-filings/PGY/10-K/0001883085-24-000060/full-submission.txt
+PGY,Pagaya Technologies,2024,7A,data/processed/PGY_2024_7A.txt,15000,data/raw/sec-edgar-filings/PGY/10-K/0001883085-24-000060/full-submission.txt
+BFH,Bread Financial,2022,1A,data/processed/BFH_2022_1A.txt,15000,data/raw/sec-edgar-filings/BFH/10-K/0001101215-22-000038/full-submission.txt
+BFH,Bread Financial,2022,7,data/processed/BFH_2022_7.txt,15000,data/raw/sec-edgar-filings/BFH/10-K/0001101215-22-000038/full-submission.txt
+BFH,Bread Financial,2022,7A,data/processed/BFH_2022_7A.txt,15000,data/raw/sec-edgar-filings/BFH/10-K/0001101215-22-000038/full-submission.txt
+BFH,Bread Financial,2024,1A,data/processed/BFH_2024_1A.txt,15000,data/raw/sec-edgar-filings/BFH/10-K/0001101215-24-000041/full-submission.txt
+BFH,Bread Financial,2024,7,data/processed/BFH_2024_7.txt,15000,data/raw/sec-edgar-filings/BFH/10-K/0001101215-24-000041/full-submission.txt
+BFH,Bread Financial,2024,7A,data/processed/BFH_2024_7A.txt,15000,data/raw/sec-edgar-filings/BFH/10-K/0001101215-24-000041/full-submission.txt
+BFH,Bread Financial,2025,1A,data/processed/BFH_2025_1A.txt,15000,data/raw/sec-edgar-filings/BFH/10-K/0001101215-25-000031/full-submission.txt
+BFH,Bread Financial,2025,7,data/processed/BFH_2025_7.txt,15000,data/raw/sec-edgar-filings/BFH/10-K/0001101215-25-000031/full-submission.txt
+BFH,Bread Financial,2025,7A,data/processed/BFH_2025_7A.txt,15000,data/raw/sec-edgar-filings/BFH/10-K/0001101215-25-000031/full-submission.txt
+BFH,Bread Financial,2023,1A,data/processed/BFH_2023_1A.txt,15000,data/raw/sec-edgar-filings/BFH/10-K/0001101215-23-000049/full-submission.txt
+BFH,Bread Financial,2023,7,data/processed/BFH_2023_7.txt,15000,data/raw/sec-edgar-filings/BFH/10-K/0001101215-23-000049/full-submission.txt
+BFH,Bread Financial,2023,7A,data/processed/BFH_2023_7A.txt,15000,data/raw/sec-edgar-filings/BFH/10-K/0001101215-23-000049/full-submission.txt
+OPFI,OppFi,2025,1A,data/processed/OPFI_2025_1A.txt,15000,data/raw/sec-edgar-filings/OPFI/10-K/0001818502-25-000003/full-submission.txt
+OPFI,OppFi,2025,7,data/processed/OPFI_2025_7.txt,15000,data/raw/sec-edgar-filings/OPFI/10-K/0001818502-25-000003/full-submission.txt
+OPFI,OppFi,2025,7A,data/processed/OPFI_2025_7A.txt,15000,data/raw/sec-edgar-filings/OPFI/10-K/0001818502-25-000003/full-submission.txt
+OPFI,OppFi,2023,1A,data/processed/OPFI_2023_1A.txt,15000,data/raw/sec-edgar-filings/OPFI/10-K/0001818502-23-000005/full-submission.txt
+OPFI,OppFi,2023,7,data/processed/OPFI_2023_7.txt,15000,data/raw/sec-edgar-filings/OPFI/10-K/0001818502-23-000005/full-submission.txt
+OPFI,OppFi,2023,7A,data/processed/OPFI_2023_7A.txt,15000,data/raw/sec-edgar-filings/OPFI/10-K/0001818502-23-000005/full-submission.txt
+OPFI,OppFi,2022,1A,data/processed/OPFI_2022_1A.txt,15000,data/raw/sec-edgar-filings/OPFI/10-K/0001818502-22-000001/full-submission.txt
+OPFI,OppFi,2022,7,data/processed/OPFI_2022_7.txt,15000,data/raw/sec-edgar-filings/OPFI/10-K/0001818502-22-000001/full-submission.txt
+OPFI,OppFi,2022,7A,data/processed/OPFI_2022_7A.txt,15000,data/raw/sec-edgar-filings/OPFI/10-K/0001818502-22-000001/full-submission.txt
+OPFI,OppFi,2024,1A,data/processed/OPFI_2024_1A.txt,15000,data/raw/sec-edgar-filings/OPFI/10-K/0001818502-24-000005/full-submission.txt
+OPFI,OppFi,2024,7,data/processed/OPFI_2024_7.txt,15000,data/raw/sec-edgar-filings/OPFI/10-K/0001818502-24-000005/full-submission.txt
+OPFI,OppFi,2024,7A,data/processed/OPFI_2024_7A.txt,15000,data/raw/sec-edgar-filings/OPFI/10-K/0001818502-24-000005/full-submission.txt
